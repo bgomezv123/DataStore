@@ -84,23 +84,23 @@ fun MainScreen() {
 
 
     Column {
-        if(name != "") {
+
             var text by remember { mutableStateOf(name) }
             Log.d("name123", name.toString())
 
             Text(text = "Data Store")
             text?.let {
                 TextField(
-                    value = text.toString(),
+                    value = name.toString(),
                     onValueChange = {
 
                         text = it
-                        GlobalScope.launch(Dispatchers.Main) {
+                        GlobalScope.launch(Dispatchers.IO) {
                             preferenceManager.saveName(text.toString())
                         }
                     },
                 )
-            }
+
         }
 
         val mContext = LocalContext.current

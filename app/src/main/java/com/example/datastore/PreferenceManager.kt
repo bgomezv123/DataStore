@@ -8,8 +8,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 
-val Context.dataStore by preferencesDataStore(name = "settings")
+
 class PreferenceManager(context: Context) {
+    val Context.dataStore by preferencesDataStore(name = "settings")
     private val dataStore = context.dataStore
 
     suspend fun saveName(name: String) {
